@@ -133,7 +133,7 @@ This example installs all components to the `esp` directory in your home directo
 
   1. Clone the dscKeybusInterface-RTOS repository:
 
-      `~/esp$ git clone --recursive https://github.com/taligentx/dscKeybusInterface-RTOS.git`
+      `~/esp$ git clone https://github.com/taligentx/dscKeybusInterface-RTOS.git`
 
   2. Set the `ESPPORT` environment variable to the esp8266 USB-serial interface as listed in `/dev/` - this will need to be set again if the system is rebooted or if the tty device name changes:
       ```
@@ -213,7 +213,7 @@ This example installs all components to an `esp` disk image.
 
   1. Clone the dscKeybusInterface-RTOS repository:
 
-      `esp$ git clone --recursive https://github.com/taligentx/dscKeybusInterface-RTOS.git`
+      `esp$ git clone https://github.com/taligentx/dscKeybusInterface-RTOS.git`
 
   2. Set the `ESPPORT` environment variable to the esp8266 USB-serial interface as listed in `/dev/` - this will need to be set again if the system is rebooted or if the `tty` device name changes:
       ```

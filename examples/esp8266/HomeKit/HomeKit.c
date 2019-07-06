@@ -30,7 +30,7 @@
  *
  *    8. Open the iOS Home app, select (+) to add an accessory, select "Don't have a Code or Can't Scan?"
  *
- *    9. Select the "Security System" accessory and pair with the setup code - this can take up to 45 seconds.
+ *    9. Select the "Security System" accessory and pair with the setup code - this can take up to 30 seconds.
  *
  *
  *  Partitions, zones, and fire sensors are currently configured individually - making these dynamically generated
