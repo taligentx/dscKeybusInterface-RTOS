@@ -97,7 +97,7 @@ This example installs all components to the `esp` directory in your home directo
 
   1. Install required packages:    
       ```
-      ~/esp$ sudo apt-get install make unrar-free autoconf automake libtool gcc g++ gperf \
+      ~/esp$ sudo apt install make unrar-free autoconf automake libtool gcc g++ gperf \
       flex bison texinfo gawk ncurses-dev libexpat-dev python-dev python python-serial \
       sed git unzip bash help2man wget bzip2 libtool-bin
       ```
@@ -153,8 +153,8 @@ This example installs all components to an `esp` disk image.
 * Create a disk image to contain all components - this is necessary if macOS is installed with the default case-insensitive file system:
 
     ```
-    $ sudo hdiutil create ~/Documents/esp.dmg -volname "esp" -size 5g -fs "Case-sensitive HFS+"
-    $ sudo hdiutil mount ~/Documents/esp.dmg
+    $ hdiutil create ~/Documents/esp.dmg -volname "esp" -size 5g -fs "Case-sensitive HFS+"
+    $ hdiutil mount ~/Documents/esp.dmg
     ```
 
 * Install [Homebrew](https://brew.sh):
