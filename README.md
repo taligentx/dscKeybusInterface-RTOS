@@ -104,7 +104,9 @@ This example installs all components to the `esp` directory in your home directo
 
   2. Clone the esp-open-sdk repository: 
 
-      `~/esp$ git clone --recursive https://github.com/pfalcon/esp-open-sdk.git`
+      ```
+      ~/esp$ git clone --recursive https://github.com/pfalcon/esp-open-sdk.git
+      ```
 
   3. Build the esp-open-sdk toolchain (this can take 10-15 minutes):
        ```
@@ -133,24 +135,26 @@ This example installs all components to the `esp` directory in your home directo
 
   1. Clone the dscKeybusInterface-RTOS repository:
 
-      `~/esp$ git clone https://github.com/taligentx/dscKeybusInterface-RTOS.git`
-
-  2. Set the `ESPPORT` environment variable to the esp8266 USB-serial interface as listed in `/dev/` - this will need to be set again if the system is rebooted or if the tty device name changes:
       ```
-      ~/esp$ export ESPPORT=/dev/tty.wchusbserial410  # Typical style for CH240 USB-serial controllers
-      ~/esp$ export ESPPORT=/dev/tty.SLAB_USBtoUART   # Typical style for CP2102 USB-serial controllers
+      ~/esp$ git clone https://github.com/taligentx/dscKeybusInterface-RTOS.git
       ```
 
-  3. Navigate to one of the examples to build and flash the esp8266 - check the example for specific usage documentation:
+  2. Navigate to one of the examples and edit the Makefile to set the esp8266 serial port, baud rate, and flash size:
       ```
       ~/esp$ cd dscKeybusInterface-RTOS/examples/esp8266/KeybusReader
+      KeybusReader$ nano Makefile
+      ```
+
+  3. Build the example and flash the esp8266 - check the example for specific usage documentation:
+
+      ```
       KeybusReader$ make flash
       ```
 
 ## Installation - macOS 10.11+
-This example installs all components to an `esp` disk image.
+This example installs all components to an `esp` disk image - this is necessary if macOS is installed with the default case-insensitive file system:
 
-* Create a disk image to contain all components - this is necessary if macOS is installed with the default case-insensitive file system:
+* Create a disk image to contain all components:
 
     ```
     $ hdiutil create ~/Documents/esp.dmg -volname "esp" -size 5g -fs "Case-sensitive HFS+"
@@ -159,13 +163,17 @@ This example installs all components to an `esp` disk image.
 
 * Install [Homebrew](https://brew.sh):
 
-  `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+  ```
+  $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  ```
 
 * Install [esp-open-sdk](https://github.com/pfalcon/esp-open-sdk):
 
   1. Install required packages:
   
-      `$ brew install binutils coreutils automake wget gawk libtool help2man gperf gnu-sed grep`
+      ```
+      $ brew install binutils coreutils automake wget gawk libtool help2man gperf gnu-sed grep
+      ```
 
   2. Add a path to the Homebrew installation of gnu-sed:
 
@@ -213,17 +221,19 @@ This example installs all components to an `esp` disk image.
 
   1. Clone the dscKeybusInterface-RTOS repository:
 
-      `esp$ git clone https://github.com/taligentx/dscKeybusInterface-RTOS.git`
-
-  2. Set the `ESPPORT` environment variable to the esp8266 USB-serial interface as listed in `/dev/` - this will need to be set again if the system is rebooted or if the `tty` device name changes:
       ```
-      esp$ export ESPPORT=/dev/tty.wchusbserial410  # Typical style for CH240 USB-serial controllers
-      esp$ export ESPPORT=/dev/tty.SLAB_USBtoUART   # Typical style for CP2102 USB-serial controllers
+      esp$ git clone https://github.com/taligentx/dscKeybusInterface-RTOS.git
       ```
 
-  3. Navigate to one of the examples to build and flash the esp8266 - check the example for specific usage documentation:
+  2. Navigate to one of the examples and edit the Makefile to set the esp8266 serial port, baud rate, and flash size::
       ```
       esp$ cd dscKeybusInterface-RTOS/examples/esp8266/KeybusReader
+      KeybusReader$ nano Makefile
+      ```
+
+  3. Build the example and flash the esp8266 - check the example for specific usage documentation:
+
+      ```
       KeybusReader$ make flash
       ```
 

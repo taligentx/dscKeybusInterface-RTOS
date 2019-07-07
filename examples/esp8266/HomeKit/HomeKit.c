@@ -215,6 +215,9 @@ void dscLoop() {
     // Blocks this task until valid panel data is available
     xSemaphoreTake(dscDataAvailable, portMAX_DELAY);
 
+    //debug
+    printf("Free heap: %u\n", xPortGetFreeHeapSize());
+
     if (dscStatusChanged) {      // Checks if the security system status has changed
       dscStatusChanged = false;  // Reset the status tracking flag
 
