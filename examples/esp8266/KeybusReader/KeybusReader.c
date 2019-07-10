@@ -6,14 +6,11 @@
  *  to productive use.
  *
  *  Usage (macOS/Linux):
- *    1. Edit dscSettings.h to configure pins
+ *    1. Edit dscSettings.h to configure the GPIO pins
  *
- *    2. Set the `ESPPORT` environment variable to the esp8266 USB-serial interface as listed in `/dev/` - this
- *       will need to be set again if the system is rebooted or if the `tty` device name changes:
- *         $ export ESPPORT=/dev/tty.wchusbserial410  # Typical style for CH240 USB-serial controllers
- *         $ export ESPPORT=/dev/tty.SLAB_USBtoUART   # Typical style for CP2102 USB-serial controllers
+ *    2. Edit Makefile to set the esp8266 serial port, baud rate, and flash size.
  *
- *    3. Build and flash the esp8266:
+ *    3. Build the example and flash the esp8266:
  *         $ make flash
  *       (If a previous flash causes issues, erase before flashing: make erase_flash)
  *

@@ -14,14 +14,11 @@
  *
  *    3. Configure partitions, zones, and fire sensors as needed (see below).
  *
- *    4. Edit dscSettings.h to configure GPIO pins and WiFi settings
+ *    4. Edit dscSettings.h to configure GPIO pins and WiFi settings.
  *
- *    5. Set the `ESPPORT` environment variable to the esp8266 USB-serial interface as listed in `/dev/` - this
- *       will need to be set again if the system is rebooted or if the `tty` device name changes:
- *         $ export ESPPORT=/dev/tty.wchusbserial410  # Typical style for CH240 USB-serial controllers
- *         $ export ESPPORT=/dev/tty.SLAB_USBtoUART   # Typical style for CP2102 USB-serial controllers
+ *    5. Edit Makefile to set the esp8266 serial port, baud rate, and flash size.
  *
- *    6. Build and flash the esp8266:
+ *    6. Build the example and flash the esp8266:
  *         $ make flash
  *       (If a previous flash causes issues, erase before flashing: make erase_flash)
  *
@@ -96,11 +93,7 @@
 char accessCode[] = "1234";  // An access code is required to disarm/night arm and may be required to arm based on panel configuration.
 char homekitSetupCode[] = "111-11-111";  // HomeKit pairing code
 
-#define STAY_ARM 0
-#define AWAY_ARM 1
-#define NIGHT_ARM 2
-#define DISARMED 3
-#define ALARM_TRIGGERED 4
+enum alarmState {STAY_ARM, AWAY_ARM, NIGHT_ARM, DISARMED, ALARM_TRIGGERED};
 char exitState;
 
 
@@ -214,9 +207,6 @@ void dscLoop() {
 
     // Blocks this task until valid panel data is available
     xSemaphoreTake(dscDataAvailable, portMAX_DELAY);
-
-    //debug
-    printf("Free heap: %u\n", xPortGetFreeHeapSize());
 
     if (dscStatusChanged) {      // Checks if the security system status has changed
       dscStatusChanged = false;  // Reset the status tracking flag
